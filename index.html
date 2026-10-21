@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Match: Prophets Before the Exile / مطابقة: الأنبياء قبل السبي</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5f8;--card:#fff;--ink:#1b2433;--mute:#667085;--line:#d9dee7;--ok:#1f8a4c;--bad:#c0392b;--acc:#2b5aa8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151f;--card:#1a2230;--ink:#e8ecf3;--mute:#9aa6ba;--line:#2c3649;--ok:#4cc27f;--bad:#ff7a6b;--acc:#7aa5ee}}
+:root[data-theme="dark"]{--bg:#10151f;--card:#1a2230;--ink:#e8ecf3;--mute:#9aa6ba;--line:#2c3649;--ok:#4cc27f;--bad:#ff7a6b;--acc:#7aa5ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body.ar{font-family:"Noto Naskh Arabic",system-ui,serif}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:1.4rem;margin:4px 0 2px}
+.sub{color:var(--mute);margin:0 0 14px;font-size:.92rem}
+button{font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;text-align:start;width:100%}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.lang{display:flex;gap:8px;margin-bottom:12px}
+.lang button{text-align:center}.on{border-color:var(--acc);font-weight:700}
+.list{display:grid;gap:10px}
+.sec{border-inline-start:8px solid var(--c);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sec small,.best{color:var(--mute);font-size:.85rem;display:block}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
+.bar button{width:auto;padding:8px 12px;text-align:center}
+.tag{background:var(--c);color:#fff;border-radius:8px;padding:4px 10px;font-weight:700;font-size:.85rem}
+.prog{height:8px;background:var(--line);border-radius:8px;margin-bottom:14px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--c);transition:width .2s}
+.q{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;font-size:1.05rem}
+.opts{display:grid;gap:8px}
+.opts button small,.nm2{display:block;color:var(--mute);font-size:.85rem}
+.sc{text-align:center;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:20px;margin-bottom:14px}
+.sc b{font-size:2.2rem;display:block}
+.acts{display:flex;gap:8px;margin-bottom:14px}.acts button{text-align:center}
+.rv{background:var(--card);border:2px solid var(--line);border-inline-start:8px solid var(--bad);border-radius:12px;padding:12px;margin-bottom:10px}
+.rv.r{border-inline-start-color:var(--ok)}
+.rv p{margin:0 0 6px}.yes{color:var(--ok);font-weight:700}.no{color:var(--bad);font-weight:700}
+.row{display:grid;grid-template-columns:1fr 1.7fr;gap:8px;margin-bottom:8px}
+.nmb{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px;font-weight:700;display:flex;flex-direction:column;justify-content:center}
+.slot{min-height:60px;border-style:dashed;color:var(--mute);font-size:.95rem}.slot.f{border-style:solid;color:var(--ink)}.slot.sel{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc) inset}
+.bank{display:flex;flex-direction:column;gap:8px;margin:14px 0;padding-top:12px;border-top:2px solid var(--line)}.bank button{font-size:.95rem}
+.chk{text-align:center;background:var(--acc);color:#fff;border-color:var(--acc);font-weight:700}.chk:disabled{opacity:.4}.hint{color:var(--mute);font-size:.9rem;margin:0 0 10px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var S=[
+{id:"b",n:["Prophets Before the Exile","الأنبياء قبل السبي"],c:"#2e7048",
+P:[["Joel","يوئيل"],["Jonah","يونان"],["Amos","عاموس"],["Hosea","هوشع"],["Isaiah","إشعياء"],["Micah","ميخا"]],
+Q:[[0,"Used a locust invasion to picture God’s coming judgment, and foretold that God would pour out His Spirit on all people.","استخدم غزو الجراد ليصوّر دينونة الله القادمة، وتنبأ بأن الله سيسكب روحه على كل بشر."],
+[1,"Sent with God’s warning to Nineveh; his three days in the fish foreshadow the Messiah’s burial and resurrection.","أُرسل بتحذير الله إلى نينوى؛ وأيامه الثلاثة في بطن الحوت ترمز إلى دفن المسيح وقيامته."],
+[2,"A shepherd from Judah who condemned injustice; his five visions announced judgment, yet promised that David’s fallen shelter would be raised.","راعٍ من يهوذا أدان الظلم؛ رؤاه الخمس أعلنت الدينونة، لكنه وعد بإقامة مظلة داود الساقطة."],
+[3,"His marriage to an unfaithful wife pictured Israel’s unfaithfulness and God’s forgiveness: “Out of Egypt I called My son.”","زواجه من امرأة غير أمينة صوّر خيانة إسرائيل ومغفرة الله: «من مصر دعوت ابني»."],
+[4,"Ministered in Jerusalem before the Babylonian exile; his suffering-servant language points to One wounded for our transgressions.","خدم في أورشليم قبل السبي البابلي؛ ولغة العبد المتألم عنده تشير إلى المجروح لأجل معاصينا."],
+[5,"Announced judgment on Jerusalem and Samaria and named Bethlehem as the birthplace of Israel’s everlasting Ruler.","أعلن الدينونة على أورشليم والسامرة، وحدد بيت لحم مكانًا لمولد حاكم إسرائيل الأزلي."]]},
+{id:"d",n:["Prophets During the Exile","الأنبياء أثناء السبي"],c:"#2050a0",
+P:[["Nahum","ناحوم"],["Zephaniah","صفنيا"],["Habakkuk","حبقوق"],["Jeremiah","إرميا"]],
+Q:[[0,"Announced God’s judgment on Assyria and the fall of its capital, Nineveh, because of violence and cruelty.","أعلن دينونة الله على أشور وسقوط عاصمتها نينوى بسبب العنف والقسوة."],
+[1,"Warned Judah to abandon idolatry and described the Day of the Lord, yet promised restoration and joyful salvation.","حذّر يهوذا من ترك الأصنام ووصف يوم الرب، ومع ذلك وعد بالاستعادة والخلاص المفرح."],
+[2,"Asked why God permits injustice and why wicked nations prosper; proclaimed that the righteous live by faith.","سأل لماذا يسمح الله بالظلم ولماذا تنجح الأمم الشريرة؛ وأعلن أن البار بالإيمان يحيا."],
+[3,"Prophesied before and during Jerusalem’s fall, warned of Babylonian captivity, and proclaimed a new covenant.","تنبأ قبل سقوط أورشليم وأثناءه، وحذّر من السبي البابلي، وأعلن عهدًا جديدًا."],
+[0,"Gave a later warning than Jonah’s mission, because Nineveh had returned to wickedness.","جاء تحذيره بعد رسالة يونان، لأن نينوى عادت إلى الشر."],
+[3,"Challenged leaders who trusted alliances with Egypt and Assyria instead of repentance.","تحدى القادة الذين وثقوا بالتحالف مع مصر وأشور بدل التوبة."]]},
+{id:"x",n:["Prophets During the Babylonian Exile","الأنبياء أثناء السبي البابلي"],c:"#7a3b8c",
+P:[["Baruch","باروخ"],["Daniel","دانيال"],["Ezekiel","حزقيال"]],
+Q:[[0,"Served as Jeremiah’s faithful scribe, recording his prophecies and reading his messages to the people.","كان كاتب إرميا الأمين، يسجل نبواته ويقرأ رسائله على الشعب."],
+[1,"Taken to Babylon as a young exile in the first deportation; stayed faithful to prayer and God’s law in a foreign court.","أُخذ إلى بابل شابًا في السبي الأول، وبقي أمينًا للصلاة وشريعة الله في بلاط غريب."],
+[1,"His book speaks of the seventy weeks and the coming of the Messiah.","يتحدث سفره عن الأسابيع السبعين ومجيء المسيح."],
+[2,"A priest taken captive in the second deportation who ministered to the Jewish exiles.","كاهن أُخذ أسيرًا في السبي الثاني وخدم الجماعة اليهودية في المنفى."],
+[2,"His vision of the dry bones shows God restoring life and hope to His people.","رؤيا العظام اليابسة عنده تُظهر أن الله يعيد الحياة والرجاء لشعبه."]]},
+{id:"a",n:["Prophets After the Exile","الأنبياء بعد السبي"],c:"#8a5a12",
+P:[["Haggai","حجي"],["Zechariah","زكريا"],["Malachi","ملاخي"],["Zerubbabel","زربابل"],["Ezra","عزرا"],["Nehemiah","نحميا"]],
+Q:[[0,"Urged the small returned remnant to rebuild the Second Temple in Jerusalem.","حثّ البقية الصغيرة العائدة على إعادة بناء الهيكل الثاني في أورشليم."],
+[1,"A priest who spoke of the promised Messiah: “Behold, your King is coming to you, lowly and riding on a donkey.”","كاهن تحدث عن المسيح الموعود: «هوذا ملكك يأتي إليك... وديع وراكب على حمار»."],
+[2,"Preached after the third return; his book closes the Old Testament: “I send My messenger, and he will prepare the way.”","وعظ بعد العودة الثالثة، ويختم سفره العهد القديم: «هأنذا أرسل مالكي فيهيئ الطريق أمامي»."],
+[3,"Led the first stage of the return: rebuild the altar and Temple (Ezra 1–6).","قاد المرحلة الأولى من العودة: بناء المذبح والهيكل (عزرا ١–٦)."],
+[4,"Led the second stage: teach the Law and renew worship and covenant life (Ezra 7–10).","قاد المرحلة الثانية: تعليم الشريعة وتجديد العبادة وحياة العهد (عزرا ٧–١٠)."],
+[5,"Led the third stage: rebuild Jerusalem’s walls and restore security (Nehemiah 1–6).","قاد المرحلة الثالثة: إعادة بناء أسوار أورشليم واستعادة الأمان (نحميا ١–٦)."]]}];
+
+var L={en:{title:"Match: Prophets Before the Exile",sub:"Joel, Jonah, Amos, Hosea, Isaiah and Micah. Put each message next to the right prophet. The correct answers show at the end.",start:"Start the game",menu:"Menu",best:"Best",score:"Your score",your:"Your answer",right:"Correct answer",again:"Try again",rev:"Review of answers",ps:"prophets",slot:"Tap a message",chk:"Check answers",hint:"Tap a message to put it next to a name. Tap a placed message to take it back.",msgs:"Messages"},
+ar:{title:"مطابقة: الأنبياء قبل السبي",sub:"يوئيل ويونان وعاموس وهوشع وإشعياء وميخا. ضع كل رسالة بجانب النبي المناسب. تظهر الإجابات الصحيحة في النهاية.",start:"ابدأ اللعبة",menu:"القائمة",best:"أفضل نتيجة",score:"نتيجتك",your:"إجابتك",right:"الإجابة الصحيحة",again:"حاول مرة أخرى",rev:"مراجعة الإجابات",ps:"أنبياء",slot:"اختر رسالة",chk:"تحقق من الإجابات",hint:"اضغط على رسالة لتضعها بجانب اسم. اضغط على رسالة موضوعة لإرجاعها.",msgs:"الرسائل"}};
+S.forEach(function(s){var seen={},o=[];s.Q.forEach(function(q){if(!seen[q[0]]){seen[q[0]]=1;o.push(q)}});s.M=o.map(function(q){return{p:q[0],t:[q[1],q[2]]}})});
+S=S.filter(function(x){return x.id=="b"});
+var app=document.getElementById("app"),lg="en",best={};
+try{lg=localStorage.getItem("pbmlang")||"en";best=JSON.parse(localStorage.getItem("pbmbest")||"{}")}catch(e){}
+function T(k){return L[lg][k]}function I(){return lg=="ar"?1:0}
+function el(h){var d=document.createElement("div");d.innerHTML=h;return d.firstChild}
+function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function setLang(x){lg=x;try{localStorage.setItem("pbmlang",x)}catch(e){}home()}
+function dir(){document.documentElement.lang=lg;document.documentElement.dir=lg=="ar"?"rtl":"ltr";document.body.className=lg}
+function home(){
+ dir();app.innerHTML='<h1>'+T("title")+'</h1><p class="sub">'+T("sub")+'</p>';
+ var lb=el('<div class="lang"></div>');
+ [["en","English"],["ar","العربية"]].forEach(function(x){var b=el('<button class="'+(lg==x[0]?"on":"")+'">'+x[1]+'</button>');b.onclick=function(){setLang(x[0])};lb.appendChild(b)});
+ app.appendChild(lb);
+ var s=S[0],g=el('<div class="list"></div>');
+ var b=el('<button class="sec" style="--c:'+s.c+'"><span><b>'+T("start")+'</b><small>'+s.M.length+' '+T("ps")+'</small></span><span class="best">'+(best[s.id]!=null?T("best")+": "+best[s.id]+"/"+s.M.length:"")+'</span></button>');
+ b.onclick=function(){play(s)};g.appendChild(b);app.appendChild(g);
+}
+function bar(s,r){var b=el('<div class="bar"><button>'+T("menu")+'</button><span class="tag" style="--c:'+s.c+'">'+s.n[I()]+'</span><span>'+r+'</span></div>');b.firstChild.onclick=home;return b}
+function play(s){
+ var n=s.M.length,order=sh(s.M.map(function(_,i){return i})),pl=s.M.map(function(){return null}),bank=sh(s.M.map(function(_,i){return i})),sel=0;
+ dir();app.innerHTML="";var bb=bar(s,"");app.appendChild(bb);
+ app.appendChild(el('<p class="hint">'+T("hint")+'</p>'));
+ var rows=el('<div></div>'),bk=el('<div class="bank"></div>'),ck=el('<button class="chk">'+T("chk")+'</button>');
+ app.appendChild(rows);app.appendChild(bk);app.appendChild(ck);
+ function ne(){for(var i=0;i<n;i++)if(pl[i]===null)return i;return -1}
+ function draw(){
+  rows.innerHTML="";
+  order.forEach(function(k){
+   var m=s.M[k],r=el('<div class="row"><div class="nmb">'+s.P[m.p][I()]+'<span class="nm2">'+s.P[m.p][1-I()]+'</span></div></div>');
+   var b=el('<button class="slot'+(pl[k]!==null?" f":"")+(sel==k?" sel":"")+'">'+(pl[k]!==null?s.M[pl[k]].t[I()]:T("slot"))+'</button>');
+   b.onclick=function(){if(pl[k]!==null){bank.push(pl[k]);pl[k]=null}sel=k;draw()};
+   r.appendChild(b);rows.appendChild(r)});
+  bk.innerHTML='<p class="hint">'+T("msgs")+'</p>';
+  bank.forEach(function(k){var b=el('<button>'+s.M[k].t[I()]+'</button>');
+   b.onclick=function(){var t=pl[sel]===null?sel:ne();if(t<0)return;pl[t]=k;bank.splice(bank.indexOf(k),1);var e=ne();if(e>=0)sel=e;draw()};bk.appendChild(b)});
+  ck.disabled=ne()>=0;
+ }
+ ck.onclick=function(){done()};
+ function done(){
+  var sc=0;order.forEach(function(k){if(pl[k]==k)sc++});
+  if(best[s.id]==null||sc>best[s.id]){best[s.id]=sc;try{localStorage.setItem("pbmbest",JSON.stringify(best))}catch(e){}}
+  app.innerHTML="";app.appendChild(bar(s,""));
+  app.appendChild(el('<div class="sc"><span>'+T("score")+'</span><b>'+sc+' / '+n+'</b></div>'));
+  var a=el('<div class="acts"></div>'),r=el('<button>'+T("again")+'</button>'),m=el('<button>'+T("menu")+'</button>');
+  r.onclick=function(){play(s)};m.onclick=home;a.appendChild(r);a.appendChild(m);app.appendChild(a);
+  app.appendChild(el('<h2 style="font-size:1.1rem">'+T("rev")+'</h2>'));
+  order.forEach(function(k){
+   var ok=pl[k]==k;
+   app.appendChild(el('<div class="rv'+(ok?" r":"")+'"><p><b>'+s.P[s.M[k].p][I()]+'</b> '+(ok?'<span class="yes">✓</span>':'<span class="no">✗</span>')+'</p><p>'+T("your")+': <span class="'+(ok?"yes":"no")+'">'+s.M[pl[k]].t[I()]+'</span></p>'+(ok?'':'<p>'+T("right")+': <span class="yes">'+s.M[k].t[I()]+'</span></p>')+'</div>'));
+  });
+ }
+ draw();
+}
+home();
+</script>
+</body>
+</html>
